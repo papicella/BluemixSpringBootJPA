@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Albums Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+        table, td, th
+        {
+            border:1px solid darkblue;
+        }
+        th
+        {
+            background-color:darkblue;
+            color:white;
+        }
+        td
+        {
+            text-align: center;
+        }
+
+        caption {caption-side:bottom;}
+    </style>
+    <style>
+        .alert {
+            background: #fff6bf url(../../images/s_notice.png) center no-repeat;
+            background-position: 15px 50%;
+            text-align: left;
+            padding: 5px 20px 5px 45px;
+            border-top: 2px solid #ffd324;
+            border-bottom: 2px solid #ffd324;
+            border-left: 2px solid #ffd324;
+            border-right: 2px solid #ffd324;
+        }
+
+        .info {
+            background: #F8FAFC url(../../images/s_info.png) center no-repeat;
+            background-position: 15px 50%;
+            text-align: left;
+            padding: 5px 20px 5px 45px;
+            border-top: 2px solid #B5D4FE;
+            border-bottom: 2px solid #B5D4FE;
+            border-left: 2px solid #B5D4FE;
+            border-right: 2px solid #B5D4FE;
+        }
+
+        .error {
+            background: #FFBFBF url(../../images/s_error.png) center no-repeat;
+            background-position: 15px 50%;
+            text-align: left;
+            padding: 5px 20px 5px 45px;
+            border-top: 2px solid #FF2424;
+            border-bottom: 2px solid #FF2424;
+            border-left: 2px solid #FF2424;
+            border-right: 2px solid #FF2424;
+        }
+
+        .success {
+            background: #f0fff0 url(../../images/s_success.png) center no-repeat;
+            background-position: 15px 50%;
+            text-align: left;
+            padding: 5px 20px 5px 45px;
+            border-top: 2px solid #00FF00;
+            border-bottom: 2px solid #00FF00;
+            border-left: 2px solid #00FF00;
+            border-right: 2px solid #00FF00;
+        }
+
+    </style>
+</head>
+<body>
+<h2> Albums Page </h2>
+
+<div class="success" th:if="${actionStr != null}" th:text="${actionStr}">
+</div>
+
+<div class="info" th:text="${countStr}">
+</div>
+
+<p />
+<a href="/addnew">
+    <img src="images/add16.gif"
+         th:src="@{images/add16.gif}"
+         alt="Add New"
+         border="0"/> Add New Album
+</a>
+&nbsp; | &nbsp;
+<a href="/">
+    <img src="images/b_home.png"
+         th:src="@{images/b_home.png}"
+         alt="Return to Home Page"
+         border="0"/> Home Page
+</a>
+<p />
+<form action="#" th:action="@{/searchAlbums}" method="post">
+<b>Title Like : </b>
+<input type="text" name="title" th:value="${title}"/><br />
+<input type="image" src="images/Search.png" th:src="@{images/Search.png}" />
+</form>
+<p />
+
+<table>
+    <tr>
+        <th>Index</th>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Release Year</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="album : ${albums}">
+        <td th:text="${albumStat.count}">1</td>
+        <td th:text="${album.title}"></td>
+        <td th:text="${album.artist}"></td>
+        <td th:text="${album.releaseYear}"></td>
+        <td>
+            <a th:href="'/deletealbum?id=' + ${album.id}">
+                <img src="images/b_drop.png"
+                     th:src="@{images/b_drop.png}"
+                     alt="Delete"
+                     border="0"/>
+            </a> &nbsp;
+            <a th:href="'/editalbum?id=' + ${album.id}">
+                <img src="images/b_props.png"
+                     th:src="@{images/b_props.png}"
+                     alt="Edit"
+                     border="0"/>
+            </a>
+        </td>
+    </tr>
+</table>
+<br />
+
+<hr size="2" />
+
+<div th:include="footer :: copy"></div>
+
+</body>
+</html>

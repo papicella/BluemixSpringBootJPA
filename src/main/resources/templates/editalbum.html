@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Add Album</title>
+</head>
+<body>
+
+<h2> Add Album </h2>
+
+<p />
+<a href="/addnew">
+    <img src="images/add16.gif"
+         th:src="@{images/add16.gif}"
+         alt="Add New"
+         border="0"/> Add New Album
+</a>
+&nbsp; | &nbsp;
+<a href="/">
+    <img src="images/b_home.png"
+         th:src="@{images/b_home.png}"
+         alt="Return to Home Page"
+         border="0"/> Home Page
+</a>
+<p />
+
+<form action="#" th:action="@{/editAlbum}" th:object="${album}" method="post">
+    <input type="hidden" id="id" name="id" th:value="*{id}" size="80" />
+    <table>
+        <tr>
+            <td>Title</td>
+            <td><input type="text" id="title" name="title" th:value="*{title}" size="40" /></td>
+        </tr>
+        <tr>
+            <td>Artist</td>
+            <td><input type="text" id="artist" name="artist" th:value="*{artist}" size="40" /></td>
+        </tr>
+        <tr>
+            <td>Release Year</td>
+            <td><input type="text" id="releaseYear" name="releaseYear" th:value="*{releaseYear}" size="40" /></td>
+        </tr>
+    </table>
+    <input type="submit" value="Edit Album" />
+</form>
+
+<hr size="2" />
+
+<div th:include="footer :: copy"></div>
+
+</body>
+</html>

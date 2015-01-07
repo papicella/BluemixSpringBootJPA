@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{welcome.title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2> Albums Welcome Page </h2>
+
+<ul>
+    <li><a href="/albums">View Albums [<span th:text="${count}"/>]</a></li>
+</ul>
+
+<hr size="2" />
+
+<div th:include="footer :: copy"></div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Add Album</title>
+</head>
+<body>
+
+<h2> Add Album </h2>
+
+<p />
+<a href="/">
+    <img src="images/b_home.png"
+         th:src="@{images/b_home.png}"
+         alt="Return to Home Page"
+         border="0"/> Home Page
+</a>
+<p />
+
+<form action="#" th:action="@{/addAlbum}" th:object="${album}" method="post">
+    <table>
+        <tr>
+            <td>Title</td>
+            <td><input type="text" id="title" name="title" th:value="*{title}" size="40" /></td>
+        </tr>
+        <tr>
+            <td>Artist</td>
+            <td><input type="text" id="artist" name="artist" th:value="*{artist}" size="40" /></td>
+        </tr>
+        <tr>
+            <td>Release Year</td>
+            <td><input type="text" id="releaseYear" name="releaseYear" th:value="*{releaseYear}" size="40" /></td>
+        </tr>
+    </table>
+    <input type="image" src="images/Create.png" th:src="@{images/Create.png}" />
+</form>
+
+<hr size="2" />
+
+<div th:include="footer :: copy"></div>
+
+</body>
+</html>
