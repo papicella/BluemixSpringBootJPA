@@ -33,7 +33,7 @@ spring auto configures this for you using spring cloud service connector library
 http://localhost:8080/
 ```
 
-<h2> Deploy to IBM Bluemix <h2>
+<h2> Deploy to IBM Bluemix </h2>
 
 - When deploying to IBM Bluemix you must bind the app to a MYSQL service as shown in the manifest.yml below.
 
