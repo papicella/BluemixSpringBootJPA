@@ -1,4 +1,4 @@
-<h1> Apples Cloud Foundry Spring Boot / Spring Data JPA / Thymeleaf demo </h1>
+<h1> IBM Bluemix - Spring Boot / Spring Data JPA / Thymeleaf demo </h1>
 
 The following demo shows how to bind to a MYSQL service from a data bound Spring Boot [Spring Data JPA]. 
 This ensures you don't have to write any code to retrieve the bound data source connection details as 
@@ -24,7 +24,7 @@ spring auto configures this for you using spring cloud service connector library
 - Run demo prior to deploying to Cloud Foundry as follows
 
 ```
-> java -jar ApplesCFDemo-0.0.1-SNAPSHOT.jar
+> java -jar BluemixSpringBootJPA-0.0.1-SNAPSHOT.jar
 ```
 
 - Access as follows in a browser
@@ -34,3 +34,4 @@ http://localhost:8080/
 ```
 
 <h2> Deploy to IBM Bluemix <h2>
+
