@@ -1,3 +1,7 @@
+declared-services:
+  pas-mysql:
+    label: cleardb
+    plan: spark
 applications:
 - name: pas-albums
   memory: 512M
