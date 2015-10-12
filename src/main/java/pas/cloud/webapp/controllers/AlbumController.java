@@ -25,6 +25,19 @@ public class AlbumController
         this.repository = repository;
     }
 
+    @RequestMapping(value = "/albumsslow", method = RequestMethod.GET)
+    public String listProductsSlow(Model model) throws Exception
+    {
+        List<Album> albums = (List<Album>) repository.findAll();
+
+        // Sleep for 6 seconds before returning to simulate slow page
+        Thread.sleep(6000);
+
+        model.addAttribute("albums", albums);
+        model.addAttribute("countStr", String.format("Total of %s albums", albums.size()));
+        return "albums";
+    }
+
     @RequestMapping(value = "/albums", method = RequestMethod.GET)
     public String listProducts(Model model)
     {
