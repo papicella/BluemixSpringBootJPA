@@ -3,12 +3,10 @@ declared-services:
     label: cleardb
     plan: spark
 applications:
-- name: pas-albums
+- name: pas-mjalbums
   memory: 512M
   instances: 1
-  host: pas-albums
-  domain: mybluemix.net
+  host: pas-mjalbums
   path: ./target/BluemixSpringBootJPA-0.0.1-SNAPSHOT.jar
-  buildpack: https://github.com/cloudfoundry/java-buildpack.git
   services:
     - pas-mysql
