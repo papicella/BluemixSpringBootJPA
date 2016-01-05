@@ -3,10 +3,11 @@ declared-services:
     label: cleardb
     plan: spark
 applications:
-- name: pas-mjalbums
+- name: bluemix-springboot
   memory: 512M
   instances: 1
-  host: pas-mjalbums
+  host: pasdemo-${random-word}
+  buildpack: java_buildpack
   path: ./target/BluemixSpringBootJPA-0.0.1-SNAPSHOT.jar
   services:
     - pas-mysql
