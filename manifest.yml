@@ -7,6 +7,7 @@ applications:
   memory: 512M
   instances: 1
   host: pasdemo-${random-word}
+  buildpack: java_buildpack
   path: ./target/BluemixSpringBootJPA-0.0.1-SNAPSHOT.jar
   services:
     - pas-mysql
