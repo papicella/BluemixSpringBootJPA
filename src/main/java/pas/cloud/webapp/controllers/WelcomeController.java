@@ -28,4 +28,11 @@ public class WelcomeController
         return "welcome";
     }
 
+    @RequestMapping(value = "/killme", method = RequestMethod.GET)
+    public String properties(Model model) throws Exception
+    {
+        Runtime.getRuntime().halt(-1);
+        return "welcome";
+    }
+
 }
